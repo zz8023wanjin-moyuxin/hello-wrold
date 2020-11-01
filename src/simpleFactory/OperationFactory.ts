@@ -1,8 +1,8 @@
-import {Operation} from "../Utils/Operation";
-import {OperationAdd} from "../Utils/OperationAdd";
-import {OperationSub} from "../Utils/OperationSub";
-import {OperationMul} from "../Utils/OperationMul";
-import {OperationDiv} from "../Utils/OperationDiv";
+import {Operation} from "../Utils/operation/Operation";
+import {OperationAdd} from "../Utils/operation/OperationAdd";
+import {OperationSub} from "../Utils/operation/OperationSub";
+import {OperationMul} from "../Utils/operation/OperationMul";
+import {OperationDiv} from "../Utils/operation/OperationDiv";
 
 export class OperationFactory {
   static createOperation (operate: string): Operation|null {

@@ -25,7 +25,7 @@
 
 <script lang="ts">
   import { Component, Vue } from 'vue-property-decorator';
-  import {OperationFactory} from "@/modelFactory/OperationFactory";
+  import {OperationFactory} from "@/simpleFactory/OperationFactory";
 
   @Component
   export default class Counter extends Vue {
@@ -34,7 +34,7 @@
     operationStr = '+';
     countResult = 0;
 
-    options: any = [
+    options = [
       {
         value: '+',
         label: '+'
