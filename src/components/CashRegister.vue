@@ -29,7 +29,7 @@
 </template>
 <script>
 import { Component, Vue } from 'vue-property-decorator';
-import {CashContext, DiscountType} from "../policyContext/Context";
+import {CashContext, DiscountType} from "../policyContext/CashContext";
 
 @Component
 export default class MyCash extends Vue {
