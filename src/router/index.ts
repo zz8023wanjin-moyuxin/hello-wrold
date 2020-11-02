@@ -7,18 +7,49 @@ Vue.use(VueRouter)
 const routes: Array<RouteConfig> = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    redirect: '/login'
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/LoginPage.vue'),
+    meta: {
+      keepAlive: false
+    }
   },
   {
-    path: '/MyCash',
-    name: 'MyCash',
-    component: () => import('../views/MyCash.vue')
+    path: '/index',
+    name: 'Index',
+    component: () => import('../views/index.vue'),
+    meta: {
+      keepAlive: false
+    },
+    children: [
+      {
+        path: '/home',
+        name: 'Home',
+        component: Home,
+        meta: {
+          keepAlive: false
+        }
+      },
+      {
+        path: '/about',
+        name: 'About',
+        component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+        meta: {
+          keepAlive: false
+        }
+      },
+      {
+        path: '/myCash',
+        name: 'MyCash',
+        component: () => import('../views/MyCash.vue'),
+        meta: {
+          keepAlive: false
+        }
+      }
+    ]
   }
 ]
 
