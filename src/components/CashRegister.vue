@@ -29,7 +29,7 @@
 </template>
 <script>
 import { Component, Vue } from 'vue-property-decorator';
-import {Context, DiscountType} from "../../policyContext/Context";
+import {CashContext, DiscountType} from "../policyContext/Context";
 
 @Component
 export default class MyCash extends Vue {
@@ -65,8 +65,8 @@ export default class MyCash extends Vue {
   ]
 
   cashHandleCLick () {
-    const context = new Context(this.standard, this.price, this.amount).getStrategy();
-    this.countResult += context.getResult();
+    const context = new CashContext(this.standard);
+    this.countResult += context.getResult(this.price * this.amount);
   }
 
   resetHandleCLick () {
