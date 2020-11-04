@@ -22,6 +22,15 @@
 </script>
 
 <style lang="less">
+@import "assets/layui/css/layui.css";
+@import "assets/css/global.css";
+@import "assets/layui/css/modules/layer/default/layer.css";
+
+// 公用样式
+.svg {
+  position: relative;
+  top: -4px;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

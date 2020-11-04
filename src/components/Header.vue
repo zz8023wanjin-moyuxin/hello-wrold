@@ -1,8 +1,8 @@
 <template>
   <div class="fly-header layui-bg-black">
-    <div class="layui-container">
+    <div class="layui-container displaySty">
       <a class="fly-logo" href="/">
-        <img src="../assets/logo-2.png" alt="layui">
+        <img src="../assets/logo-2.png" class="imgSty" alt="layui">
       </a>
       <ul class="layui-nav fly-nav layui-hide-xs">
         <li class="layui-nav-item layui-this">
@@ -70,5 +70,12 @@
 </script>
 
 <style scoped lang="less">
-
+  .displaySty {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .imgSty {
+    margin-top: -1.5rem;
+  }
 </style>
