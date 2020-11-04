@@ -18,6 +18,22 @@ const routes: Array<RouteConfig> = [
     }
   },
   {
+    path: '/forget',
+    name: 'Forget',
+    component: () => import('../views/Forget.vue'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
+    path: '/reg',
+    name: 'Reg',
+    component: () => import('../views/Reg.vue'),
+    meta: {
+      keepAlive: false
+    }
+  },
+  {
     path: '/index',
     name: 'Index',
     component: () => import('../views/index.vue'),
