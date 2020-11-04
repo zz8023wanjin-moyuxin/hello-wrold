@@ -68,30 +68,59 @@
             <div class="layui-form layui-form-pane">
               <form method="post">
                 <div class="layui-form-item">
-                  <label for="L_email" class="layui-form-label">邮箱</label>
-                  <div class="layui-input-inline">
-                    <input type="text" id="L_email" name="email" required lay-verify="required" autocomplete="off" class="layui-input">
-                  </div>
+                  <label class="layui-form-label">用户名</label>
+                  <validation-provider rules="required|email" name="用户名" v-slot="{ errors }">
+                    <div class="layui-input-block boxStyle">
+                      <input
+                          v-model="userName"
+                          type="text"
+                          name="userName"
+                          autocomplete="off"
+                          class="layui-input"
+                          placeholder="请输入用户名"
+                      />
+                      <span class="error layui-form-mid">{{ errors[0] }}</span>
+                    </div>
+                  </validation-provider>
                 </div>
                 <div class="layui-form-item">
-                  <label for="L_pass" class="layui-form-label">密码</label>
-                  <div class="layui-input-inline">
-                    <input type="password" id="L_pass" name="pass" required lay-verify="required" autocomplete="off" class="layui-input">
-                  </div>
+                  <label class="layui-form-label">密码</label>
+                  <validation-provider rules="required" name="用户名" v-slot="{ errors }">
+                    <div class="layui-input-block boxStyle">
+                      <input
+                          v-model="password"
+                          type="password"
+                          name="password"
+                          autocomplete="off"
+                          class="layui-input"
+                          placeholder="请输入密码"
+                      />
+                      <span class="error layui-form-mid">{{ errors[0] }}</span>
+                    </div>
+                  </validation-provider>
                 </div>
                 <div class="layui-form-item">
-                  <label for="L_vercode" class="layui-form-label">人类验证</label>
-                  <div class="layui-input-inline">
-                    <input type="text" id="L_vercode" name="vercode" required lay-verify="required" placeholder="请回答后面的问题" autocomplete="off" class="layui-input">
-                  </div>
-                  <div class="layui-form-mid">
-                    <span style="color: #c00;">hello</span>
-                  </div>
+                 <div class="layui-row">
+                   <label class="layui-form-label">验证码</label>
+                   <div class="layui-input-inline">
+                     <input
+                         v-model="code"
+                         type="text"
+                         name="vercode"
+                         placeholder="请输入验证码"
+                         autocomplete="off"
+                         class="layui-input"
+                     />
+                   </div>
+                   <div class="layui-form-mid">
+                     <span style="color: #c00;">hello</span>
+                   </div>
+                 </div>
                 </div>
                 <div class="layui-form-item">
-                  <button class="layui-btn" lay-filter="*" lay-submit>立即登录</button>
+                  <button class="layui-btn">立即登录</button>
                   <span style="padding-left:20px;">
-                  <a href="forget.html">忘记密码？</a>
+                  <router-link :to="{name: 'Forget'}">忘记密码？</router-link>
                 </span>
                 </div>
                 <div class="layui-form-item fly-form-app">
@@ -114,23 +143,23 @@
   import { ValidationProvider, extend } from 'vee-validate';
   import { required, email } from 'vee-validate/dist/rules';
 
-  /*extend('required', {
+  extend('required', {
     ...required,
     message: '{_field_}不能为空'
   });
   extend('email', {
     ...email,
     message: '{_field_}不符合邮箱格式'
-  });*/
+  });
 
   Vue.component('ValidationProvider', ValidationProvider);
 
   @Component
   export default class LoginPage extends Vue {
     svg = '';
-    name = '';
+    userName = '';
     password = '';
-    vercode  = '';
+    code  = '';
 
     mounted () {
       this.getCaptcha();
